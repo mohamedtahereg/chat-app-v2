@@ -18,7 +18,7 @@ class _SignUpState extends State<SignUp> {
   String? eemail, pass, username;
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
-///////////////////         كود ال بيركر   /////////////////////////////
+/////////////////////////        كود ال بيركر    //////////////////////////
   bool isloading = false;
   File? image;
   final imagePiker = ImagePicker();
@@ -45,7 +45,7 @@ class _SignUpState extends State<SignUp> {
     } else {}
   }
 
-//////////////////////////// image picker ////////////////////////////////////
+////////////////////////////    image picker     ////////////////////////////
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -84,12 +84,12 @@ class _SignUpState extends State<SignUp> {
                                 onPressed: () {
                                   uploadImageFromPhotos();
                                 },
-                                icon: Icon(Icons.photo)),
+                                icon: const Icon(Icons.photo)),
                             IconButton(
                                 onPressed: () {
                                   uploadImageFromCamera();
                                 },
-                                icon: Icon(Icons.camera_alt)),
+                                icon: const Icon(Icons.camera_alt)),
                           ],
                         ),
                       ]),
@@ -106,7 +106,7 @@ class _SignUpState extends State<SignUp> {
 
                     return null;
                   },
-                  txtFormFieldKey: ValueKey("email"),
+                  txtFormFieldKey: const ValueKey("email"),
                   fieldName: "user name",
                   onSaved: (e1) {
                     username = e1;
@@ -126,14 +126,14 @@ class _SignUpState extends State<SignUp> {
                     }
                     return null;
                   },
-                  txtFormFieldKey: ValueKey("email"),
+                  txtFormFieldKey: const ValueKey("email"),
                   fieldName: "Email",
                   onSaved: (e1) {
                     eemail = e1;
                   },
                 ),
                 MyTextField(
-                  txtFormFieldKey: ValueKey("password"),
+                  txtFormFieldKey: const ValueKey("password"),
                   textFieldIcon: const Icon(Icons.password),
                   txtFieldValidater: (val) {
                     if (val!.isEmpty) {
@@ -204,7 +204,7 @@ class _SignUpState extends State<SignUp> {
                   height: 20,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(6.0),
+                  padding: const EdgeInsets.all(6.0),
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -215,11 +215,14 @@ class _SignUpState extends State<SignUp> {
 
                           Get.off(() => SignIn());
                         },
-                        child: const Text(
-                          "  Click Here",
-                          style: TextStyle(
-                            color: Color(0xff6c63ff),
-                            fontWeight: FontWeight.w700,
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            "  Click Here",
+                            style: TextStyle(
+                              color: Color(0xff6c63ff),
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ),

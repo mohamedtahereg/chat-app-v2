@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
               onChanged: (value) {
                 if (value == 'logout') {
                   FirebaseAuth.instance.signOut();
-                  Get.off(() => SignIn());
+                  Get.offAll(() => SignIn());
                 }
               },
             ),

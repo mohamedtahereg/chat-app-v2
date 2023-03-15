@@ -1,5 +1,4 @@
 import 'package:chat_app/sevices/auth.dart';
-import 'package:chat_app/view/screens/home.dart';
 import 'package:chat_app/view/screens/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,7 +50,7 @@ class _SignInState extends State<SignIn> {
                   height: 10,
                 ),
                 MyTextField(
-                  txtFormFieldKey: ValueKey("email"),
+                  txtFormFieldKey: const ValueKey("email"),
                   txtFieldValidater: (val) {
                     if (val!.length < 3) {
                       return "cant be less than 3 letters";
@@ -71,7 +70,7 @@ class _SignInState extends State<SignIn> {
                   },
                 ),
                 MyTextField(
-                  txtFormFieldKey: ValueKey("password"),
+                  txtFormFieldKey: const ValueKey("password"),
                   txtFieldValidater: (val) {
                     if (val!.length < 3) {
                       return "cant be less than 3 letters";
@@ -131,11 +130,14 @@ class _SignInState extends State<SignIn> {
                         onTap: () {
                           Get.off(() => SignUp());
                         },
-                        child: const Text(
-                          "  Register",
-                          style: TextStyle(
-                            color: Color(0xff6c63ff),
-                            fontWeight: FontWeight.w700,
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            "  Register",
+                            style: TextStyle(
+                              color: Color(0xff6c63ff),
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ),
