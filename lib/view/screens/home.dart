@@ -156,6 +156,13 @@ class _HomeState extends State<Home> {
               children: [
                 Expanded(
                   child: TextFormField(
+                    onFieldSubmitted: (value) {
+                      if (value.isEmpty) {
+                        return;
+                      } else {
+                        submitMethod();
+                      }
+                    },
                     onChanged: (value) {
                       messageI = value;
                     },
@@ -197,7 +204,11 @@ class _HomeState extends State<Home> {
                 ),
                 IconButton(
                     onPressed: () {
-                      submitMethod();
+                      if (messageI.isEmpty) {
+                        return;
+                      } else {
+                        submitMethod();
+                      }
                     },
                     icon: const Icon(
                       Icons.send,
@@ -224,5 +235,6 @@ class _HomeState extends State<Home> {
     });
     FocusScope.of(context).unfocus();
     controller.clear();
+    messageI = "";
   }
 }
