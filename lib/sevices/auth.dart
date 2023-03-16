@@ -20,12 +20,14 @@ class AuthMethod {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: email.trim(), password: password.trim());
+      // <جزء الصورة >//
       final ref = FirebaseStorage.instance
           .ref()
           .child('user_image')
           .child(userCredential.user!.uid);
       await ref.putFile(image);
       final url = await ref.getDownloadURL();
+      // </جزء الصورة >//
       await FirebaseFirestore.instance
           .collection('users')
           .doc(userCredential.user!.uid)
